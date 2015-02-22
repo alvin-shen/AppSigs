@@ -1,0 +1,12 @@
+#west-panel {
+	.x-panel-body-default {
+		background: #3e4752;
+	}
+	.x-panel-header-default {
+		background-color: #f1495b;
+	}
+}
+
+.x-panel-header-title-default > .x-title-text-default:after {
+	content: '' !important;
+}
