@@ -1,26 +1,19 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "autoCreateViewport" property. That setting automatically applies the "viewport"
- * plugin to promote that instance of this class to the body element.
- *
- * TODO - Replace this content of this view to suite the needs of your application.
- */
 Ext.define('AppSigs.view.main.MainController', {
     extend: 'Ext.app.ViewController',
-
-    requires: [
-        'Ext.window.MessageBox'
-    ],
-
     alias: 'controller.main',
 
-    onClickButton: function () {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
+    showDetails: function(record) {
+        console.log(record);
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+        var detailPanel = this.lookupReference('detailPanel');
+        console.log(detailPanel);
+
+
+        detailPanel.tpl.overwrite(detailPanel.body, record.data);
+        // detailPanel.setHtml(html);
+
     }
 });
+
+
+var html = '<h1>test</h1>'

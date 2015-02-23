@@ -8,30 +8,36 @@
 Ext.define('AppSigs.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
-        // 'AppSigs.view.main.MainController',
-        // 'AppSigs.view.main.MainModel',
-        'AppSigs.view.signature.Signature'
+        'AppSigs.view.signature.Signature',
+        'AppSigs.view.main.MainController'
     ],
-
+    controller: 'main',
     xtype: 'app-main',
-    
-    // controller: 'main',
-    // viewModel: {
-    //     type: 'main'
+
+    // layout: {
+    //     type: 'hbox',
+    //     align: 'stretch'
     // },
 
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
+    layout: 'border',
 
-    items: [{
+    items: [
+    {
         xtype: 'panel',
-        title: 'Application Control',
+        region: 'west',
+        title: 'Application Details',
         id: 'west-panel',
-        width: 250
-    }, {
+        split: true,
+        collapsible: true,
+        reference: 'detailPanel',
+        width: 250,
+        tpl: '<h1>{field1}<h1><p>Type: {field2}</p><p>Date: {field6}</p>'
+    },{
         xtype: 'signature',
+        region: 'center',
+        listeners: {
+            recordClick: 'showDetails'
+        },
         flex: 1
-    }]
+    },]
 });

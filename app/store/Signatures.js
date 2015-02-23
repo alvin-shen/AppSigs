@@ -7,6 +7,7 @@ Ext.define('AppSigs.store.Signatures', {
 
 	pageSize: 25,
 	remoteFilter: true,
+	remoteSort: true,
 
     proxy: {
         type: 'memory',

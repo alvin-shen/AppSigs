@@ -1,10 +1,9 @@
-#west-panel {
-	.x-panel-body-default {
-		background: #3e4752;
-	}
-	.x-panel-header-default {
-		background-color: #f1495b;
-	}
+$panel-header-background-color: #3d404a;
+$panel-border-color: #3d404a;
+$splitter-active-background-color: #ff0000;
+
+.x-splitter-vertical {
+	background-color: #ff0000;
 }
 
 .x-panel-header-title-default > .x-title-text-default:after {
