@@ -3,21 +3,21 @@ Ext.define('AppSigs.view.signature.Signature', {
     alias: 'widget.signature',
 
     requires: [
-        // 'AppSigs.view.signature.SignatureController',
+        'AppSigs.view.signature.SignatureController',
         'AppSigs.view.signature.SignatureModel',
         // 'AppSigs.store.Signatures'
     ],
 
-    // controller: 'signature',
+    controller: 'signature',
 
     viewModel: {
         type: 'signaturemodel'
     },
 
-    // bind: {
-    //  store: '{signatures}'
-    // },
-    bind: '{signaturesStore}',
+    bind: {
+     store: '{signaturesStore}'
+    },
+    // bind: '{signaturesStore}',
     // store: {
     //     type: 'signatures'
     // },
@@ -36,13 +36,6 @@ Ext.define('AppSigs.view.signature.Signature', {
             click: 'onSearchClick'
         }
     }],
-
-    // columns: [
-    //     {text: 'Name', dataIndex: 'name'},
-    //     {text: 'Email', dataIndex: 'email'},
-    //     {text: 'Phone', dataIndex: 'phone'}
-    // ]
-
 
     columns: [
         {text: '1', dataIndex: 'field1'},
@@ -65,10 +58,10 @@ Ext.define('AppSigs.view.signature.Signature', {
     ],
     dockedItems: [{
         xtype: 'pagingtoolbar',
-        // bind: {
-        //     store: '{signatures}'
-        // },
-        bind: '{signaturesStore}',
+        bind: {
+            store: '{signaturesStore}'
+        },
+        // bind: '{signaturesStore}',
         dock: 'bottom',
         displayInfo: true
     }]
