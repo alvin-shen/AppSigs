@@ -1,10 +1,3 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "autoCreateViewport" property. That setting automatically applies the "viewport"
- * plugin to promote that instance of this class to the body element.
- *
- * TODO - Replace this content of this view to suite the needs of your application.
- */
 Ext.define('AppSigs.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
@@ -14,11 +7,6 @@ Ext.define('AppSigs.view.main.Main', {
     controller: 'main',
     xtype: 'app-main',
 
-    // layout: {
-    //     type: 'hbox',
-    //     align: 'stretch'
-    // },
-
     layout: 'border',
 
     items: [
@@ -26,12 +14,24 @@ Ext.define('AppSigs.view.main.Main', {
         xtype: 'panel',
         region: 'west',
         title: 'Application Details',
-        id: 'west-panel',
+        autoScroll: true,
         split: true,
         collapsible: true,
+        collapsed: true,
         reference: 'detailPanel',
-        width: 250,
-        tpl: '<h1>{field1}<h1><p>Type: {field2}</p><p>Date: {field6}</p>'
+        width: 300,
+        tpl: '<div style="padding-left: 10px;">' +
+                '<h1>{field1}<h1>' +
+                '<div style="font-size: 14px;">' +
+                    '<a href=http://{field8} target="_blank">{field7}</a>' +
+                    '<p>Application: {field12}</p>' +
+                    '<p>Type: {field2}</p>' +
+                    '<p>Date: {field6}</p>' +
+                    '<p>Problem: {field9}</p>' +
+                    '<p>{field10}</p>' +
+                    '<p>{field13}</p>' +
+                '</div>' +
+            '</div>'
     },{
         xtype: 'signature',
         region: 'center',

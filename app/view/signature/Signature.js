@@ -14,7 +14,7 @@ Ext.define('AppSigs.view.signature.Signature', {
     },
 
     bind: {
-     store: '{signaturesStore}'
+        store: '{signaturesStore}'
     },
 
     title: 'Application Signatures',
@@ -29,6 +29,12 @@ Ext.define('AppSigs.view.signature.Signature', {
         reference: 'searchField',
         width: 300,
         enableKeyEvents: true,
+        triggers: {
+            clear: {
+                cls: 'x-form-clear-trigger',
+                handler: 'clearFilter'
+            }
+        },
         listeners: {
             specialkey: 'onSpecialKey'
         }
@@ -38,6 +44,10 @@ Ext.define('AppSigs.view.signature.Signature', {
         listeners: {
             click: 'onSearchClick'
         }
+    }, {
+        xtype: 'label',
+        text: 'Click a row to view its details',
+        margin: '0 0 0 60'
     }],
 
     columns: [

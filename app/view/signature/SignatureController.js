@@ -3,18 +3,18 @@ Ext.define('AppSigs.view.signature.SignatureController', {
     alias: 'controller.signature',
 
     onSearchClick: function() {
-    	console.log("CLICKED");
     	var signaturesStore = this.getView().getStore();
 		var searchField = this.lookupReference('searchField');
 
+        var filters = new Array();
 		var filter = {
 			property: 'field1',
 			anyMatch: true,
 			caseSensitive: false,
 			value: searchField.value
 		};
-
-		signaturesStore.addFilter(filter);
+        filters.push(filter);
+		signaturesStore.addFilter(filters);
     },
 
     onSpecialKey: function(field, e) {
@@ -24,7 +24,6 @@ Ext.define('AppSigs.view.signature.SignatureController', {
     			var signaturesStore = this.getView().getStore();
 
     			if (searchField.value == "") {
-    				console.log("nul");
     				signaturesStore.clearFilter();
     			}
     		break;
@@ -38,5 +37,11 @@ Ext.define('AppSigs.view.signature.SignatureController', {
 
     onRowMouseUp: function(row, record) {
         this.getView().fireEvent("recordClick", record);
+    },
+
+    clearFilter: function() {
+        this.getView().getStore().clearFilter();
+        var searchField = this.lookupReference('searchField');
+        searchField.reset();
     }
 });

@@ -100,9 +100,6 @@
      */
     "js": [
         {
-            "path": "data/data-subset.js"
-        },
-        {
             "path": "data/data.js"
         },
         {
